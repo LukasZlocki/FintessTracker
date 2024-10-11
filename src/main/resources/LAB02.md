@@ -18,7 +18,7 @@ serwisu FitnessTracker:
 
 Stworzone API powinno pozwalać na:
 
-- [] wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa
+- [X] wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa
   uzytkownika)
   * ToDo :
     * stworzenie controllera, repo i service "getAllUserBasicDetails"
