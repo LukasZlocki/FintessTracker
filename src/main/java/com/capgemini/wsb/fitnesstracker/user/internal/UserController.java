@@ -33,14 +33,16 @@ class UserController {
                 .toList();
     }
 
-    @PostMapping
+    @PostMapping("/v1/adduser")
     public User addUser(@RequestBody UserDto userDto) throws InterruptedException {
+        User user = userMapper.toEntity(userDto);
+        return userService.createUser(user);
 
         // Demonstracja how to use @RequestBody
-        System.out.println("User with e-mail: " + userDto.email() + "passed to the request");
+        //System.out.println("User with e-mail: " + userDto.email() + "passed to the request");
 
         // TODO: saveUser with Service and return User
-        return null;
+        //return null;
     }
 
 }
