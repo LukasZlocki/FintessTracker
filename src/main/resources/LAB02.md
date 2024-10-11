@@ -18,8 +18,12 @@ serwisu FitnessTracker:
 
 Stworzone API powinno pozwalać na:
 
-- [ ] wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa
+- [] wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa
   uzytkownika)
+  * ToDo :
+    * stworzenie controllera, repo i service "getAllUserBasicDetails"
+    * stworznie DtoBasic (tylko id, imie)
+    * zmapoowanie na DtoBasic
 - [ ] pobranie szczegółów dotyczących wybranego użytkownika (dowolny parametr: ID/imię & nazwisko/datę urodzenia/ e-mail)
 - [ ] utworzenie nowego użytkownika
 - [ ] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
