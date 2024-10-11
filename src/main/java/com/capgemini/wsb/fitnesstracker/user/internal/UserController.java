@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/users")
+//@RequestMapping("/v1/users")
 @RequiredArgsConstructor
 class UserController {
 
@@ -17,12 +17,20 @@ class UserController {
 
     private final UserMapper userMapper;
 
-    @GetMapping
+    @GetMapping("/v1/users")
     public List<UserDto> getAllUsers() {
         return userService.findAllUsers()
                           .stream()
                           .map(userMapper::toDto)
                           .toList();
+    }
+
+    @GetMapping("/v1/usersbasic")
+    public List<UserBasicDto> getAllUsersBasicData() {
+        return userService.findAllUsers()
+                .stream()
+                .map(userMapper::toBasicDto)
+                .toList();
     }
 
     @PostMapping
