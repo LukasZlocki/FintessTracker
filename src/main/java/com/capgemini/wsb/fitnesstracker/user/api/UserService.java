@@ -7,5 +7,5 @@ package com.capgemini.wsb.fitnesstracker.user.api;
 public interface UserService {
 
     User createUser(User user);
-
+    int delete(int id);
 }
