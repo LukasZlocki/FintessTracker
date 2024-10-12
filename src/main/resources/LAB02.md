@@ -30,7 +30,7 @@ Stworzone API powinno pozwalać na:
   * ToDo : 
     [*] stworzenie serwisu do tworzenia nowego uzytkownika - parametr user
     [*] stworzeine endpoint typu create w controllerze /user
-    [ ] testy postman 
+    [*] testy postman 
 - [ ] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
 - [ ] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
   tylko ID oraz e-mail użytkowników)
