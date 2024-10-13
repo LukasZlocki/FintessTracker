@@ -36,14 +36,14 @@ class UserController {
     }
 
     @GetMapping("/v1/finduserbyemail/{email}")
-    public UserBasicDto findUserByEmail(@PathVariable String email) {
+    public UserBasicEmailDto findUserByEmail(@PathVariable String email) {
         System.out.println("Received email: " + email);
         Optional<User> optionalUser = userService.findUserByEmail(email);
         if(optionalUser.isPresent()) {
-            return userMapper.toBasicDto(optionalUser.get());
+            return userMapper.toBasicEmailDto(optionalUser.get());
         } else {
             // ToDo : handle user not found scenario
-            return new UserBasicDto(null, "");
+            return new UserBasicEmailDto(null, "");
         }
     }
 
