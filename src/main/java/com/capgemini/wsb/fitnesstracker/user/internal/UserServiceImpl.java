@@ -32,6 +32,12 @@ class UserServiceImpl implements UserService, UserProvider {
     }
 
     @Override
+    public Optional<User> findUserByEmail(String email) {
+        String _emailLowerCase = email.toLowerCase();
+        return userRepository.findByEmail(_emailLowerCase);
+    }
+
+    @Override
     public Optional<User> getUser(final Long userId) {
         return userRepository.findById(userId);
     }

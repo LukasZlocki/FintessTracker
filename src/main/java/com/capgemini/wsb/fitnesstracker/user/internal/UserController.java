@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 //@RequestMapping("/v1/users")
@@ -35,10 +36,15 @@ class UserController {
     }
 
     @GetMapping("/v1/finduserbyemail/{email}")
-    public UserBasicDto findUserByEmail(String email) {
-        return userService.findUserByEmail(email)
-                .stream()
-                .map(userMapper::toBasicDto);
+    public UserBasicDto findUserByEmail(@PathVariable String email) {
+        System.out.println("Received email: " + email);
+        Optional<User> optionalUser = userService.findUserByEmail(email);
+        if(optionalUser.isPresent()) {
+            return userMapper.toBasicDto(optionalUser.get());
+        } else {
+            // ToDo : handle user not found scenario
+            return new UserBasicDto(null, "");
+        }
     }
 
     @PostMapping("/v1/adduser")
