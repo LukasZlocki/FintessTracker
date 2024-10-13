@@ -31,10 +31,10 @@ Stworzone API powinno pozwalać na:
     [*] stworzenie serwisu do tworzenia nowego uzytkownika - parametr user
     [*] stworzeine endpoint typu create w controllerze /user
     [*] testy postman 
-- [ ] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
-  - [] stworzenie endpointa typu delete w kontrolerze /userdelete
-  - [] stworzenie serwisu do kasacji usera w bazie
-  - [] testy api postman
+- [X] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
+  - [*] stworzenie endpointa typu delete w kontrolerze /userdelete
+  - [*] stworzenie serwisu do kasacji usera w bazie
+  - [*] testy api postman
 - [ ] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
   tylko ID oraz e-mail użytkowników)
 - [ ] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
