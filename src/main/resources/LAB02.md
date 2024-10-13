@@ -35,8 +35,12 @@ Stworzone API powinno pozwalać na:
   - [*] stworzenie endpointa typu delete w kontrolerze /userdelete
   - [*] stworzenie serwisu do kasacji usera w bazie
   - [*] testy api postman
-- [ ] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
+- [inprogress] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
   tylko ID oraz e-mail użytkowników)
+  - [] stworzyc controller i endpoint (/findUserByEmail/{email}) parametr string email
+  - [] stworzenie userBasicEmailDto w celu zwrocenia id oraz email szukanego uzytkownika
+  - [] stworzenie metody dla interface
+  - [] stworzyc service w ktorym przetworzymhy string email to lower i nastapi wyszukiwanie i zwrocenie userBasicEmailDto
 - [ ] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
 - [ ] aktualizowanie użytkowników w systemie (dowolnie wybrany atrybut)
 
