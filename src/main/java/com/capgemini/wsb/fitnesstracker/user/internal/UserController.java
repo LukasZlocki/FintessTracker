@@ -34,6 +34,13 @@ class UserController {
                 .toList();
     }
 
+    @GetMapping("/v1/finduserbyemail/{email}")
+    public UserBasicDto findUserByEmail(String email) {
+        return userService.findUserByEmail(email)
+                .stream()
+                .map(userMapper::toBasicDto);
+    }
+
     @PostMapping("/v1/adduser")
     public User addUser(@RequestBody UserDto userDto) throws InterruptedException {
         User user = userMapper.toEntity(userDto);
