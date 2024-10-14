@@ -30,7 +30,7 @@ interface UserRepository extends JpaRepository<User, Long> {
         return Optional.empty();
     }
 
-    @Query("SELECT u FROM User u WHERE u.birthDate < :birthDate")
+    @Query("SELECT u FROM User u WHERE u.birthdate < :birthDate")
     List<User> findUsersOlderThanDate(@Param("birthDate") LocalDate date);
 
 }
