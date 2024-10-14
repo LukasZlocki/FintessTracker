@@ -66,6 +66,12 @@ class UserController {
         //return null;
     }
 
+    @PostMapping("/v1/updateuser")
+    public User updateUser(@RequestBody User updatedUser) {
+        //User user = userMapper.toEntity(updatedUserDto);
+        return userService.updateUser(updatedUser);
+    }
+
     @DeleteMapping("/v1/deleteuser/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.deleteUserById(id);
