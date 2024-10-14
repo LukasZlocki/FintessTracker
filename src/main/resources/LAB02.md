@@ -41,7 +41,9 @@ Stworzone API powinno pozwalać na:
   - [*] stworzenie userBasicEmailDto w celu zwrocenia id oraz email szukanego uzytkownika
   - [*] stworzenie metody dla interface
   - [*] stworzyc service w ktorym przetworzymhy string email to lower i nastapi wyszukiwanie i zwrocenie userBasicEmailDto
-- [ ] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
+- [X] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
+  - [*] stworzyc controller (/userolder)
+  - [*] stworzenie serwisu do extrakcji danych z bazy
 - [ ] aktualizowanie użytkowników w systemie (dowolnie wybrany atrybut)
 
 ### Wymagania techniczne
