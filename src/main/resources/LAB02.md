@@ -44,7 +44,7 @@ Stworzone API powinno pozwalać na:
 - [X] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
   - [*] stworzyc controller (/userolder)
   - [*] stworzenie serwisu do extrakcji danych z bazy
-- [ ] aktualizowanie użytkowników w systemie (dowolnie wybrany atrybut)
+- [X] aktualizowanie użytkowników w systemie (dowolnie wybrany atrybut)
 
 ### Wymagania techniczne
 
