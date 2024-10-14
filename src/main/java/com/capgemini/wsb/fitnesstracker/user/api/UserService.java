@@ -1,5 +1,6 @@
 package com.capgemini.wsb.fitnesstracker.user.api;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 /**
@@ -12,4 +13,6 @@ public interface UserService {
     void deleteUserById(Long id);
 
     Optional<User> findUserByEmail(String email);
+
+    Optional<User> getUserOlderThenDate(LocalDate birthDate);
 }
