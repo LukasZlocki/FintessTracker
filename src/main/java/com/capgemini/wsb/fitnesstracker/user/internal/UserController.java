@@ -48,9 +48,10 @@ class UserController {
         }
     }
 
-    @GetMapping("/v1/getolderuser/{birth}")
-    public User getOlderUsers(@PathVariable LocalDate birthDate){
-        return userService.getUserOlderThenDate(birthDate);
+    @GetMapping("/v1/getolderuser/{birthDate}")
+    public User getOlderUsers(@PathVariable String birthDate){
+        LocalDate date = LocalDate.parse(birthDate);
+        return userService.getUserOlderThenDate(date);
     }
 
     @PostMapping("/v1/adduser")
