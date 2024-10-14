@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,6 +46,11 @@ class UserController {
             // ToDo : handle user not found scenario
             return new UserBasicEmailDto(null, "");
         }
+    }
+
+    @GetMapping("/v1/getolderuser/{birth}")
+    public User getOlderUsers(@PathVariable birthDate){
+        return userService.getUserOlderThenDate(birthDate);
     }
 
     @PostMapping("/v1/adduser")
