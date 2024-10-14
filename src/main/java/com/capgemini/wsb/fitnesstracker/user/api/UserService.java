@@ -1,6 +1,7 @@
 package com.capgemini.wsb.fitnesstracker.user.api;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -14,5 +15,5 @@ public interface UserService {
 
     Optional<User> findUserByEmail(String email);
 
-    Optional<User> getUserOlderThenDate(LocalDate birthDate);
+    List<User> getUserOlderThenDate(LocalDate birthDate);
 }
