@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-//@RequestMapping("/v1/users")
+@RequestMapping("/v1/users")
 @RequiredArgsConstructor
 class UserController {
 
@@ -28,7 +28,7 @@ class UserController {
                           .toList();
     }
 
-    @GetMapping("/v1/usersbasic")
+    @GetMapping("/simple")
     public List<UserBasicDto> getAllUsersBasicData() {
         return userService.findAllUsers()
                 .stream()

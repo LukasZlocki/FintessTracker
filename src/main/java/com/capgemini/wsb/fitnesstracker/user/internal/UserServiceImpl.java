@@ -21,9 +21,6 @@ class UserServiceImpl implements UserService, UserProvider {
     @Override
     public User createUser(final User user) {
         log.info("Creating User {}", user);
-        if (user.getId() != null) {
-            throw new IllegalArgumentException("User has already DB ID, update is not permitted!");
-        }
         return userRepository.save(user);
     }
 

@@ -26,6 +26,7 @@ Stworzone API powinno pozwalać na:
     [*] zmapoowanie na DtoBasic
     [*] testy postman 
 - [ ] pobranie szczegółów dotyczących wybranego użytkownika (dowolny parametr: ID/imię & nazwisko/datę urodzenia/ e-mail)
+  - wybrac parametr - zobaczyc jak test jest napisany i tam widac po czym szuka
 - [X] utworzenie nowego użytkownika
   * ToDo : 
     [*] stworzenie serwisu do tworzenia nowego uzytkownika - parametr user
@@ -53,6 +54,7 @@ Stworzone API powinno pozwalać na:
   domyślne, pobierające dane za pomocą `findAll()` oraz przetwarzające je za pomocą strumieni (`Stream`). Przykład
   znaleźć można w `UserRepository`
 - [ ] rozwiązanie powinno spełniać zasady SOLID
+- [ ] testy integracyjne powinny poprawnie się wykonywać UserApiIntegrationTest
 - [ ] (OPCJONALNIE) rozwiązanie powinno być pokryte testami jednostkowymi (>80%)
 - [ ] rozwiązanie powinno być odpowiednio zhermetyzowane (nie udostępniać funkcjonalności pozostałym pakietom programu)
 - [ ] kod powinien być odpowiednio udokumentowany za pomocą JavaDoc
