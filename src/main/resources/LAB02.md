@@ -28,9 +28,9 @@ Stworzone API powinno pozwalać na:
     [*] zmapoowanie na DtoBasic
     [*] testy integracyjne
   * 
-- [ ] pobranie szczegółów dotyczących wybranego użytkownika (dowolny parametr: ID/imię & nazwisko/datę urodzenia/ e-mail)
-  * ToDo: INPROGRESS
-  [] Rout : "/{id}"
+- [*] pobranie szczegółów dotyczących wybranego użytkownika (dowolny parametr: ID/imię & nazwisko/datę urodzenia/ e-mail)
+  * ToDo:
+  - [*] Rout : "/{id}"
   - [*] stworzenie controllera z mapowaniem do userDto
   - [*] stworzenie metody w serwisie do odzyskiwania usera po id usera 
     [*] testy integracyjne
