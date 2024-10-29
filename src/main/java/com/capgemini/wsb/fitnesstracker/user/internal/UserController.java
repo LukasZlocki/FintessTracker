@@ -21,7 +21,7 @@ class UserController {
 
     private final UserMapper userMapper;
 
-    @GetMapping("/v1/users")
+    @GetMapping("")
     public List<UserDto> getAllUsers() {
         return userService.findAllUsers()
                           .stream()
@@ -35,6 +35,18 @@ class UserController {
                 .stream()
                 .map(userMapper::toBasicDto)
                 .toList();
+    }
+
+    @GetMapping("/{id}")
+    public UserDto getUserById(@PathVariable Long id) {
+        Optional<User> optionalUser = userService.getUserById(id);
+        if(optionalUser.isPresent()){
+            return userMapper.toDto(optionalUser.get());
+        }
+        else {
+            return new UserDto(null, "", "", null, "");
+        }
+
     }
 
     @GetMapping("/v1/finduserbyemail/{email}")
