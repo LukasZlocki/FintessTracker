@@ -28,7 +28,7 @@ Stworzone API powinno pozwalać na:
     [*] zmapoowanie na DtoBasic
     [*] testy integracyjne
   * 
-- [*] pobranie szczegółów dotyczących wybranego użytkownika (dowolny parametr: ID/imię & nazwisko/datę urodzenia/ e-mail)
+- [X] pobranie szczegółów dotyczących wybranego użytkownika (dowolny parametr: ID/imię & nazwisko/datę urodzenia/ e-mail)
   * ToDo:
   - [*] Rout : "/{id}"
   - [*] stworzenie controllera z mapowaniem do userDto
@@ -37,11 +37,11 @@ Stworzone API powinno pozwalać na:
 
 - [X] utworzenie nowego użytkownika
   * ToDo :
-    [] Rout : "/xxx"
+    [*] Rout : ""
     [*] stworzenie serwisu do tworzenia nowego uzytkownika - parametr user
     [*] stworzeine endpoint typu create w controllerze /user
     [*] testy postman
-    [] testy integracyjne
+    [-] testy integracyjne
 - [X] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
   - [*] stworzenie endpointa typu delete w kontrolerze /userdelete
   - [*] stworzenie serwisu do kasacji usera w bazie
