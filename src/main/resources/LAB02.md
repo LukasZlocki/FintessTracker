@@ -1,7 +1,8 @@
 # LABORATORIUM 02
 
-Zadania proszę realizować zgodnie z własnym tempem. Zadania mają pomóc w przygotowaniu do Egzaminu oraz zrozumieniu Frameworka Spring.
-Termin upływa po 7 dniach od rozpoczęciu laboratorium.
+Zadania proszę realizować zgodnie z własnym tempem. Zadania mają pomóc w przygotowaniu do Egzaminu oraz zrozumieniu Frameworka Spring. Zadanie proszę przesłać na własne repozytorium.
+Termin upływa po 14 dniach od rozpoczęciu laboratorium.
+
 ## ZADANIE 1. Sieciowe API do operacji typu CRUD na klientach
 
 ### Potrzeba biznesowa
@@ -19,33 +20,46 @@ serwisu FitnessTracker:
 Stworzone API powinno pozwalać na:
 
 - [X] wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa
-  uzytkownika)
+  użytkownika)
   * ToDo :
+  * [*] Rout : "/simple"
     [*] stworzenie controllera, repo i service "getAllUserBasicDetails"
     [*] stworznie DtoBasic (tylko id, imie)
     [*] zmapoowanie na DtoBasic
-    [*] testy postman 
+    [*] testy integracyjne
+  * 
 - [ ] pobranie szczegółów dotyczących wybranego użytkownika (dowolny parametr: ID/imię & nazwisko/datę urodzenia/ e-mail)
-  - wybrac parametr - zobaczyc jak test jest napisany i tam widac po czym szuka
+  * ToDo: INPROGRESS
+  [] Rout : "/{id}"
+  - [*] stworzenie controllera z mapowaniem do userDto
+  - [*] stworzenie metody w serwisie do odzyskiwania usera po id usera 
+    [*] testy integracyjne
+
 - [X] utworzenie nowego użytkownika
-  * ToDo : 
+  * ToDo :
+    [] Rout : "/xxx"
     [*] stworzenie serwisu do tworzenia nowego uzytkownika - parametr user
     [*] stworzeine endpoint typu create w controllerze /user
-    [*] testy postman 
+    [*] testy postman
+    [] testy integracyjne
 - [X] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
   - [*] stworzenie endpointa typu delete w kontrolerze /userdelete
   - [*] stworzenie serwisu do kasacji usera w bazie
   - [*] testy api postman
+    [] testy integracyjne
 - [X] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
   tylko ID oraz e-mail użytkowników)
   - [*] stworzyc controller i endpoint (/findUserByEmail/{email}) parametr string email
   - [*] stworzenie userBasicEmailDto w celu zwrocenia id oraz email szukanego uzytkownika
   - [*] stworzenie metody dla interface
   - [*] stworzyc service w ktorym przetworzymhy string email to lower i nastapi wyszukiwanie i zwrocenie userBasicEmailDto
+    [] testy integracyjne
 - [X] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
   - [*] stworzyc controller (/userolder)
   - [*] stworzenie serwisu do extrakcji danych z bazy
+    [] testy integracyjne
 - [X] aktualizowanie użytkowników w systemie (dowolnie wybrany atrybut)
+   [] testy integracyjne
 
 ### Wymagania techniczne
 
@@ -61,6 +75,7 @@ Stworzone API powinno pozwalać na:
 - [ ] do kodu powinna zostać dołączona wyeksportowana kolekcja zapytań z programu Postman, pozwalająca przetestować
   stworzone API
 - [ ] rozwiązanie powinno wykorzystywać rekordy (Java 16+) do definicji obiektów transferu danych (DTO)
+
 
 ## ZADANIE 2: Zabezpieczenie API (Opcjonalnie)
 
