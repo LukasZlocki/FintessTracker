@@ -45,6 +45,10 @@ class UserServiceImpl implements UserService, UserProvider {
         return userRepository.findUsersOlderThanDate(birthDate);
     }
 
+    public Optional<User> getUserById(final long userId) {
+        return userRepository.findById(userId);
+    }
+
     @Override
     public Optional<User> getUser(final Long userId) {
         return userRepository.findById(userId);
