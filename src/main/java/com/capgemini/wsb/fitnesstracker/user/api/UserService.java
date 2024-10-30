@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface UserService {
 
     User createUser(User user);
-    void deleteUserById(Long id);
+    void deleteUserById(final Long id);
 
     Optional<User> findUserByEmail(String email);
 

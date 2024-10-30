@@ -25,11 +25,6 @@ interface UserRepository extends JpaRepository<User, Long> {
                         .findFirst();
     }
 
-    default Optional<Void> deleteUserById(Long id) {
-        deleteById(id);
-        return Optional.empty();
-    }
-
     @Query("SELECT u FROM User u WHERE u.birthdate < :birthDate")
     List<User> findUsersOlderThanDate(@Param("birthDate") LocalDate date);
 

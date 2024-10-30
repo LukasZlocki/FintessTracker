@@ -80,10 +80,15 @@ class UserController {
         return userService.updateUser(updatedUser);
     }
 
-    @DeleteMapping("/v1/deleteuser/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
-        userService.deleteUserById(id);
-        return ResponseEntity.ok("User deleted successfully");
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
+        try {
+            userService.deleteUserById(userId);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("User with id: " + userId + " deleted with success.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(e.getMessage());
+        }
     }
 
 }

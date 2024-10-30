@@ -43,10 +43,11 @@ Stworzone API powinno pozwalać na:
     [*] testy postman
     [-] testy integracyjne
 - [X] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
-  - [*] stworzenie endpointa typu delete w kontrolerze /userdelete
-  - [*] stworzenie serwisu do kasacji usera w bazie
-  - [*] testy api postman
-    [] testy integracyjne
+    - [*] Rout : ""
+    - [*] stworzenie endpointa typu delete w kontrolerze /userdelete
+    - [*] stworzenie serwisu do kasacji usera w bazie
+    - [*] testy api postman
+    - [inprogress] testy integracyjne
 - [X] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
   tylko ID oraz e-mail użytkowników)
   - [*] stworzyc controller i endpoint (/findUserByEmail/{email}) parametr string email
