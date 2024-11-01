@@ -76,10 +76,10 @@ class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
     }
 
-    @PostMapping("/v1/updateuser")
-    public User updateUser(@RequestBody User updatedUser) {
-        //User user = userMapper.toEntity(updatedUserDto);
-        return userService.updateUser(updatedUser);
+    @PutMapping("/{userId}")
+    public User updateUser(@PathVariable Long userId, @RequestBody UserDto updatedUserDto) {
+        User userToUpdate = userMapper.toEntity(updatedUserDto);
+        return userService.updateUser(userId, userToUpdate);
     }
 
     @DeleteMapping("/{userId}")
