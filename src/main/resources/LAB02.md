@@ -22,18 +22,18 @@ Stworzone API powinno pozwalać na:
 - [X] wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa
   użytkownika)
   * ToDo :
-  * [*] Rout : "/simple"
-    [*] stworzenie controllera, repo i service "getAllUserBasicDetails"
-    [*] stworznie DtoBasic (tylko id, imie)
-    [*] zmapoowanie na DtoBasic
-    [*] testy integracyjne
+    [x] Rout : "/simple"
+    [x] stworzenie controllera, repo i service "getAllUserBasicDetails"
+    [x] stworznie DtoBasic (tylko id, imie)
+    [x] zmapoowanie na DtoBasic
+    [x] testy integracyjne
   * 
 - [X] pobranie szczegółów dotyczących wybranego użytkownika (dowolny parametr: ID/imię & nazwisko/datę urodzenia/ e-mail)
   * ToDo:
-  - [*] Rout : "/{id}"
-  - [*] stworzenie controllera z mapowaniem do userDto
-  - [*] stworzenie metody w serwisie do odzyskiwania usera po id usera 
-    [*] testy integracyjne
+    [x] Rout : "/{id}"
+    [x] stworzenie controllera z mapowaniem do userDto
+    [x] stworzenie metody w serwisie do odzyskiwania usera po id usera 
+    [x] testy integracyjne
 
 - [X] utworzenie nowego użytkownika
   * ToDo :
@@ -50,16 +50,16 @@ Stworzone API powinno pozwalać na:
     - [*] testy integracyjne
 - [X] wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane
   tylko ID oraz e-mail użytkowników)
-  - [x] Rout : "/email"
-  - [x] stworzyc controller i endpoint (/findUserByEmail/{email}) parametr string email
-  - [x] stworzenie userBasicEmailDto w celu zwrocenia id oraz email szukanego uzytkownika
-  - [x] stworzenie metody dla interface
-  - [x] stworzyc service w ktorym przetworzymhy string email to lower i nastapi wyszukiwanie i zwrocenie userBasicEmailDto
+    [x] Rout : "/email"
+    [x] stworzyc controller i endpoint (/findUserByEmail/{email}) parametr string email
+    [x] stworzenie userBasicEmailDto w celu zwrocenia id oraz email szukanego uzytkownika
+    [x] stworzenie metody dla interface
+    [x] stworzyc service w ktorym przetworzymhy string email to lower i nastapi wyszukiwanie i zwrocenie userBasicEmailDto
     [x] testy integracyjne
 - [X] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
-  - [*] stworzyc controller (/userolder)
-  - [*] stworzenie serwisu do extrakcji danych z bazy
-    [] testy integracyjne
+  - [x] stworzyc controller (/userolder)
+  - [x] stworzenie serwisu do extrakcji danych z bazy
+    [x] testy integracyjne
 - [X] aktualizowanie użytkowników w systemie (dowolnie wybrany atrybut)
    [] testy integracyjne
 

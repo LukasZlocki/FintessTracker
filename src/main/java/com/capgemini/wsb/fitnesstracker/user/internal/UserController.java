@@ -64,7 +64,7 @@ class UserController {
         return userList;
     }
 
-    @GetMapping("/getolderuser/{birthDate}")
+    @GetMapping("/older/{birthDate}")
     public List<User> getOlderUsers(@PathVariable String birthDate){
         LocalDate date = LocalDate.parse(birthDate);
         return userService.getUserOlderThenDate(date);
