@@ -24,9 +24,19 @@ class UserServiceImpl implements UserService, UserProvider {
         return userRepository.save(user);
     }
 
-    public User updateUser(final User user) {
-        log.info("Updating User {}", user);
-        return userRepository.save(user);
+    public User updateUser(Long userId, final User updatedUser) {
+        Optional<User> userExisting = userRepository.findById(userId);
+        User userToUpdate = userExisting.orElseThrow(() -> new RuntimeException("User not found"));
+
+        // Update the existing user's details by setters implemented to user model
+        // Ask Question :
+        // if this can be donein another way by not implementing #Setters to main User model
+        userToUpdate.setFirstName(updatedUser.getFirstName());
+        userToUpdate.setLastName(updatedUser.getLastName());
+        userToUpdate.setBirthdate(updatedUser.getBirthdate());
+        userToUpdate.setEmail(updatedUser.getEmail());
+
+        return userRepository.save(userToUpdate);
     }
 
     @Override
