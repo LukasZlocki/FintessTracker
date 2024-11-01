@@ -61,7 +61,7 @@ Stworzone API powinno pozwalać na:
     [x] stworzenie serwisu do extrakcji danych z bazy
     [x] testy integracyjne
 - [X] aktualizowanie użytkowników w systemie (dowolnie wybrany atrybut)
-   [] testy integracyjne
+   [x] testy integracyjne
 
 ### Wymagania techniczne
 
