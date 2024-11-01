@@ -72,7 +72,7 @@ class UserController {
 
     @PostMapping("")
     public ResponseEntity<User> addUser(@RequestBody UserDto userDto) throws InterruptedException {
-        User userCreated = userMapper.toEntity(userDto);
+        User userCreated = userService.createUser(userMapper.toEntity(userDto));
         return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
     }
 
