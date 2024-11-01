@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,19 +51,20 @@ class UserController {
 
     }
 
-    @GetMapping("/v1/finduserbyemail/{email}")
-    public UserBasicEmailDto findUserByEmail(@PathVariable String email) {
+    @GetMapping("/email")
+    public List<UserBasicEmailDto> findUserByEmail(@RequestParam String email) {
         System.out.println("Received email: " + email);
         Optional<User> optionalUser = userService.findUserByEmail(email);
-        if(optionalUser.isPresent()) {
-            return userMapper.toBasicEmailDto(optionalUser.get());
+        List<UserBasicEmailDto> userList = new ArrayList<>();
+        if (optionalUser.isPresent()) {
+            userList.add(userMapper.toBasicEmailDto(optionalUser.get()));
         } else {
-            // ToDo : handle user not found scenario
-            return new UserBasicEmailDto(null, "");
+            userList.add(new UserBasicEmailDto(null, ""));
         }
+        return userList;
     }
 
-    @GetMapping("/v1/getolderuser/{birthDate}")
+    @GetMapping("/getolderuser/{birthDate}")
     public List<User> getOlderUsers(@PathVariable String birthDate){
         LocalDate date = LocalDate.parse(birthDate);
         return userService.getUserOlderThenDate(date);
