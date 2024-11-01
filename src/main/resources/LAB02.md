@@ -37,11 +37,11 @@ Stworzone API powinno pozwalać na:
 
 - [X] utworzenie nowego użytkownika
   * ToDo :
-    [*] Rout : ""
-    [*] stworzenie serwisu do tworzenia nowego uzytkownika - parametr user
-    [*] stworzeine endpoint typu create w controllerze /user
-    [*] testy postman
-    [-] testy integracyjne
+    [x] Rout : ""
+    [x] stworzenie serwisu do tworzenia nowego uzytkownika - parametr user
+    [x] stworzeine endpoint typu create w controllerze /user
+    [x] testy postman
+    [x] testy integracyjne
 - [X] usunięcie użytkownika (konkretny, np. konkretny ID danego uzytkownika)
     - [*] Rout : ""
     - [*] stworzenie endpointa typu delete w kontrolerze /userdelete
@@ -57,8 +57,8 @@ Stworzone API powinno pozwalać na:
     [x] stworzyc service w ktorym przetworzymhy string email to lower i nastapi wyszukiwanie i zwrocenie userBasicEmailDto
     [x] testy integracyjne
 - [X] wyszukiwanie użytkowników po wieku starszym niż zdefiniowany
-  - [x] stworzyc controller (/userolder)
-  - [x] stworzenie serwisu do extrakcji danych z bazy
+    [x] stworzyc controller (/userolder)
+    [x] stworzenie serwisu do extrakcji danych z bazy
     [x] testy integracyjne
 - [X] aktualizowanie użytkowników w systemie (dowolnie wybrany atrybut)
    [] testy integracyjne
