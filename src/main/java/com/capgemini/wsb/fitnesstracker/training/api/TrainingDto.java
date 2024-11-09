@@ -23,7 +23,7 @@ public class TrainingDto {
     private double distance;
     private double averageSpeed;
 
-    public TrainingDto(Long id,
+    public TrainingDto(
                        User user,
                        Date startTime,
                        Date endTime,
