@@ -16,6 +16,10 @@ public class TrainingController {
     private final TrainingServiceImpl trainingService;
     private final TrainingMapper trainingMapper;
 
+    /**
+     * Retrive all trainings
+     * @return List of TrainingDto objects
+     */
     @GetMapping("")
     public List<TrainingDto> GetAllTrainings() {
         return trainingService.getAllTrainings()

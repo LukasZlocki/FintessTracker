@@ -14,8 +14,6 @@ import java.util.Date;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString
 public class TrainingDto {
-    @Nullable
-    private Long id;
     private User user;
     private Date startTime;
     private Date endTime;

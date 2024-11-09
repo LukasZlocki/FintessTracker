@@ -24,6 +24,10 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
         throw new UnsupportedOperationException("Not finished yet");
     }
 
+    /**
+     * Retrive list of all trainings
+     * @return List of Training objects
+     */
     @Override
     public List<Training> getAllTrainings() {
         return trainingRepository.findAll();
