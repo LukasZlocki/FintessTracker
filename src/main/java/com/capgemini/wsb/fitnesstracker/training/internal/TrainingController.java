@@ -3,11 +3,15 @@ package com.capgemini.wsb.fitnesstracker.training.internal;
 import com.capgemini.wsb.fitnesstracker.training.api.TrainingDto;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -47,16 +51,27 @@ public class TrainingController {
 
     /**
      * Retrieve list of Trainings finished after given date
-     * @param date date after all finished trainings need to be retrieved
+     * @param afterTime date after all finished trainings need to be retrieved
      * @return List of Training Dto objects
+     * @throws ParseException exception when not able to parse
      */
     @GetMapping("/finished/{afterTime}")
-    public List<TrainingDto> GetTrainingsByFinishedDate(@PathVariable String date) {
-        LocalDate dateBase = LocalDate.parse(date);
+    public ResponseEntity<List<TrainingDto>> GetTrainingsByFinishedDate(@PathVariable String afterTime) throws ParseException {
+        SimpleDateFormat dateBase = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateLocal = dateBase.parse(afterTime);
+        /*
         return trainingService.getAllTrainingsByFinishedDate(dateBase)
                 .stream()
                 .map(trainingMapper::toTrainingDto)
                 .toList();
+
+         */
+        List<TrainingDto> trainingsDto = trainingService
+                .getAllTrainingsByFinishedDate(dateLocal)
+                .stream()
+                .map(trainingMapper::toTrainingDto)
+                .toList();
+        return ResponseEntity.status(HttpStatus.OK).body(trainingsDto);
     }
 
 }

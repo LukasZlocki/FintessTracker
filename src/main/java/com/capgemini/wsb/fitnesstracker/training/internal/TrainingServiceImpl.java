@@ -4,10 +4,13 @@ import com.capgemini.wsb.fitnesstracker.training.api.Training;
 import com.capgemini.wsb.fitnesstracker.training.api.TrainingProvider;
 import com.capgemini.wsb.fitnesstracker.training.api.TrainingService;
 import com.capgemini.wsb.fitnesstracker.user.api.User;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,4 +40,9 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
     public List<Training> getAllTrainingsByUser(Long id) {
         return trainingRepository.findByUserId(id);
     }
+
+    public List<Training> getAllTrainingsByFinishedDate(Date date){
+        return trainingRepository.findTrainingsFinishedAfterGivenDate(date);
+    }
+
 }
