@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -30,9 +32,28 @@ public class TrainingController {
                 .toList();
     }
 
+    /**
+     * Retrieve Trainings by user
+     * @param id user primary key
+     * @return List of Training Dto objects
+     */
     @GetMapping("/{id}")
     public List<TrainingDto> GetTrainingsByUser(@PathVariable Long id){
         return trainingService.getAllTrainingsByUser(id)
+                .stream()
+                .map(trainingMapper::toTrainingDto)
+                .toList();
+    }
+
+    /**
+     * Retrieve list of Trainings finished after given date
+     * @param date date after all finished trainings need to be retrieved
+     * @return List of Training Dto objects
+     */
+    @GetMapping("/finished/{afterTime}")
+    public List<TrainingDto> GetTrainingsByFinishedDate(@PathVariable String date) {
+        LocalDate dateBase = LocalDate.parse(date);
+        return trainingService.getAllTrainingsByFinishedDate(dateBase)
                 .stream()
                 .map(trainingMapper::toTrainingDto)
                 .toList();
