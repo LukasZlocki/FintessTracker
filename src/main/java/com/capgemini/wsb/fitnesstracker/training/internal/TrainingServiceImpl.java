@@ -28,7 +28,7 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
     }
 
     /**
-     * Retrive list of all trainings
+     * Retrieve list of all trainings
      * @return List of Training objects
      */
     @Override
@@ -36,11 +36,20 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
         return trainingRepository.findAll();
     }
 
-
+    /**
+     * Retrieve trainings by user primary key
+     * @param id user primary key
+     * @return List of Training objects
+     */
     public List<Training> getAllTrainingsByUser(Long id) {
         return trainingRepository.findByUserId(id);
     }
 
+    /**
+     * Retrieve trainings finished after given date
+     * @param date date
+     * @return List of Training objects
+     */
     public List<Training> getAllTrainingsByFinishedDate(Date date){
         return trainingRepository.findTrainingsFinishedAfterGivenDate(date);
     }
