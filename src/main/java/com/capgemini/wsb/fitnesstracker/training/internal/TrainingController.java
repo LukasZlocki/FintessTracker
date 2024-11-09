@@ -13,8 +13,8 @@ public class TrainingController {
     private final TrainingServiceImpl trainingService;
 
     @GetMapping("")
-    public List<TrainingDto> GetTrainings() {
-        return trainingService.findAllTrainings()
+    public List<TrainingDto> GetAllTrainings() {
+        return trainingService.getAllTrainings()
                 .stream()
                 .map(trainingMapper::toTrainingDto)
                 .toList();
