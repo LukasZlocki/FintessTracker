@@ -32,4 +32,9 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
     public List<Training> getAllTrainings() {
         return trainingRepository.findAll();
     }
+
+
+    public List<Training> getAllTrainingsByUser(Long id) {
+        return trainingRepository.findByUserId(id);
+    }
 }
