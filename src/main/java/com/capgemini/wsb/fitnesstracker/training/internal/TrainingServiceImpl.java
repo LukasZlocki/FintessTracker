@@ -1,6 +1,7 @@
 package com.capgemini.wsb.fitnesstracker.training.internal;
 
 import com.capgemini.wsb.fitnesstracker.training.api.Training;
+import com.capgemini.wsb.fitnesstracker.training.api.TrainingDto;
 import com.capgemini.wsb.fitnesstracker.training.api.TrainingProvider;
 import com.capgemini.wsb.fitnesstracker.training.api.TrainingService;
 import com.capgemini.wsb.fitnesstracker.user.api.User;
@@ -21,6 +22,7 @@ import java.util.Optional;
 public class TrainingServiceImpl implements TrainingProvider, TrainingService {
 
     private final TrainingRepository trainingRepository;
+    private final TrainingMapper trainingMapper;
 
     @Override
     public Optional<User> getTraining(final Long trainingId) {
@@ -52,6 +54,19 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
      */
     public List<Training> getAllTrainingsByFinishedDate(Date date){
         return trainingRepository.findTrainingsFinishedAfterGivenDate(date);
+    }
+
+    /**
+     * Retrieve list of Trainings by given activity type
+     * @param activityType activity type to filter trainings
+     * @return list of trainings as TrainingDto
+     */
+    public List<TrainingDto> getTrainingsOfActivityType(String activityType) {
+        return trainingRepository.findAll()
+                .stream()
+                .filter(s -> activityType.equalsIgnoreCase(s.getActivityType().toString()))
+                .map(trainingMapper::toTrainingDto)
+                .toList();
     }
 
 }
