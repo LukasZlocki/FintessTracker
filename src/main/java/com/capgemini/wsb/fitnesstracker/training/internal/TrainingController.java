@@ -1,18 +1,13 @@
 package com.capgemini.wsb.fitnesstracker.training.internal;
 
 import com.capgemini.wsb.fitnesstracker.training.api.TrainingDto;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -72,6 +67,21 @@ public class TrainingController {
                 .map(trainingMapper::toTrainingDto)
                 .toList();
         return ResponseEntity.status(HttpStatus.OK).body(trainingsDto);
+    }
+
+    /**
+     * Retrieve list of Trainings by given activity type
+     * @param activityType activity type to filter trainings
+     * @return ResponseEntity containing the list of trainings of the specified activity type, * or a status message if no trainings found.
+     */
+    @GetMapping("/activityType")
+    public ResponseEntity<Object> getActivitiesByType(@RequestParam("activityType") String activityType) {
+        var trainings = trainingService.getTrainingsOfActivityType(activityType);
+        if(trainings.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No trainings with provided activity type found");
+        }
+        return ResponseEntity.ok(trainings);
     }
 
 }
