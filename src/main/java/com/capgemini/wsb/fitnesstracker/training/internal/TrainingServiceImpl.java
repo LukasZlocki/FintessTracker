@@ -1,10 +1,9 @@
 package com.capgemini.wsb.fitnesstracker.training.internal;
 
-import com.capgemini.wsb.fitnesstracker.training.api.Training;
-import com.capgemini.wsb.fitnesstracker.training.api.TrainingDto;
-import com.capgemini.wsb.fitnesstracker.training.api.TrainingProvider;
-import com.capgemini.wsb.fitnesstracker.training.api.TrainingService;
+import com.capgemini.wsb.fitnesstracker.training.api.*;
 import com.capgemini.wsb.fitnesstracker.user.api.User;
+import com.capgemini.wsb.fitnesstracker.user.api.UserNotFoundException;
+import com.capgemini.wsb.fitnesstracker.user.api.UserProvider;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +22,8 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
 
     private final TrainingRepository trainingRepository;
     private final TrainingMapper trainingMapper;
+    private final UserProvider userProvider;
+
 
     @Override
     public Optional<User> getTraining(final Long trainingId) {
@@ -36,6 +37,20 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
     @Override
     public List<Training> getAllTrainings() {
         return trainingRepository.findAll();
+    }
+
+    @Override
+    public TrainingDto createTraining(TrainingInputDto trainingInputDto) throws UserNotFoundException {
+        log.info("Creating Training {}", trainingInputDto);
+
+        var user = userProvider.getUser(trainingInputDto.getUserId())
+                .orElseThrow(() -> new UserNotFoundException(trainingInputDto.getUserId()));
+
+        TrainingDto trainingDto = trainingMapper.inputDtoToTrainingDto(user, trainingInputDto);
+
+        Training training = trainingMapper.toEntity(trainingDto);
+
+        return trainingMapper.toTrainingDto(trainingRepository.save(training));
     }
 
     /**
