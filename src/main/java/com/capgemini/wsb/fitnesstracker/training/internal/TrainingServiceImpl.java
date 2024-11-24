@@ -58,13 +58,13 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
         var training = trainingRepository.findById(id)
                 .orElseThrow(() -> new TrainingNotFoundException(id));
 
-        var user = userProvider.getUserEntity(trainingInputDto.getUserId())
+        var user = userProvider.getUser(trainingInputDto.getUserId())
                 .orElseThrow(() -> new UserNotFoundException(id));
 
         TrainingDto trainingDto = trainingMapper.inputDtoToTrainingDto(user, trainingInputDto);
 
         // Create updated dto and update training based on it
-        TrainingDto oldTrainingDto = trainingMapper.toDto(training);
+        TrainingDto oldTrainingDto = trainingMapper.toTrainingDto(training);
         TrainingDto newTrainingDto = oldTrainingDto.updateTraining(trainingDto).addId(id);
         Training newTraining = trainingMapper.toEntity(newTrainingDto);
         newTraining.setId(id);
