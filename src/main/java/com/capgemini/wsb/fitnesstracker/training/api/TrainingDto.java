@@ -50,4 +50,8 @@ public class TrainingDto {
         );
     }
 
+    public TrainingDto addId(Long id) {
+        return new TrainingDto(id, user, startTime, endTime, activityType, distance, averageSpeed);
+    }
+
 }
