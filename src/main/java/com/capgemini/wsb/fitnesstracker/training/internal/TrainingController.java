@@ -56,13 +56,6 @@ public class TrainingController {
     public ResponseEntity<List<TrainingDto>> GetTrainingsByFinishedDate(@PathVariable String afterTime) throws ParseException {
         SimpleDateFormat dateBase = new SimpleDateFormat("yyyy-MM-dd");
         Date dateLocal = dateBase.parse(afterTime);
-        /*
-        return trainingService.getAllTrainingsByFinishedDate(dateBase)
-                .stream()
-                .map(trainingMapper::toTrainingDto)
-                .toList();
-
-         */
         List<TrainingDto> trainingsDto = trainingService
                 .getAllTrainingsByFinishedDate(dateLocal)
                 .stream()
@@ -86,6 +79,12 @@ public class TrainingController {
         return ResponseEntity.ok(trainings);
     }
 
+    /**
+     * Creates new training
+     * @param trainingInputDto dto with training dto model
+     * @return A ResponseEntity containing the created training entity and HTTP status 201 (CREATED)
+     * if successful, * or an error message and HTTP status 404 (NOT FOUND) if a NotFoundException is thrown.
+     */
     @PostMapping
     public ResponseEntity<Object> createTraining(@RequestBody TrainingInputDto trainingInputDto) {
         try {
@@ -97,6 +96,13 @@ public class TrainingController {
         }
     }
 
+    /**
+     * Updates existing training in database
+     * @param id privmary key of training
+     * @param trainingInputDto training dto
+     * @return A ResponseEntity containing the updated training entity and HTTP status 200 (OK)
+     * if successful, * or an error message with appropriate HTTP status if a NotFoundException or IllegalArgumentException is thrown.
+     */
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateTraining(@PathVariable("id") Long id, @RequestBody TrainingInputDto trainingInputDto) {
 

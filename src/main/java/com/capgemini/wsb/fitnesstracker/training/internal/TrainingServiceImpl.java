@@ -39,6 +39,11 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
         return trainingRepository.findAll();
     }
 
+    /**
+     * Creates new training
+     * @param trainingInputDto dto with training dto model
+     * @return return created training dto model
+     */
     @Override
     public TrainingDto createTraining(TrainingInputDto trainingInputDto) throws UserNotFoundException {
         log.info("Creating Training {}", trainingInputDto);
@@ -53,6 +58,12 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
         return trainingMapper.toTrainingDto(trainingRepository.save(training));
     }
 
+    /**
+     * Updates trainings by training primary key and training dto
+     * @param id training primary key
+     * @param trainingInputDto training dto
+     * @return return updated training dto model
+     */
     @Override
     public TrainingDto updateTraining(Long id, TrainingInputDto trainingInputDto) throws UserNotFoundException, TrainingNotFoundException {
         var training = trainingRepository.findById(id)
