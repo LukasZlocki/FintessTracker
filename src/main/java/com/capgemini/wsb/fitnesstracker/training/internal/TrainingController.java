@@ -1,6 +1,7 @@
 package com.capgemini.wsb.fitnesstracker.training.internal;
 
 import com.capgemini.wsb.fitnesstracker.training.api.TrainingDto;
+import com.capgemini.wsb.fitnesstracker.training.api.TrainingInputDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -82,6 +83,17 @@ public class TrainingController {
                     .body("No trainings with provided activity type found");
         }
         return ResponseEntity.ok(trainings);
+    }
+
+    @PostMapping
+    public ResponseEntity<Object> createTraining(@RequestBody TrainingInputDto trainingInputDto) {
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(trainingService.createTraining(trainingInputDto));
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(e.getMessage());
+        }
     }
 
 }
