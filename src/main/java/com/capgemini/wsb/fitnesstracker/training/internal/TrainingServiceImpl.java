@@ -53,6 +53,27 @@ public class TrainingServiceImpl implements TrainingProvider, TrainingService {
         return trainingMapper.toTrainingDto(trainingRepository.save(training));
     }
 
+    @Override
+    public TrainingDto updateTraining(Long id, TrainingInputDto trainingInputDto) throws UserNotFoundException, TrainingNotFoundException {
+        var training = trainingRepository.findById(id)
+                .orElseThrow(() -> new TrainingNotFoundException(id));
+
+        var user = userProvider.getUserEntity(trainingInputDto.getUserId())
+                .orElseThrow(() -> new UserNotFoundException(id));
+
+        TrainingDto trainingDto = trainingMapper.inputDtoToTrainingDto(user, trainingInputDto);
+
+        // Create updated dto and update training based on it
+        TrainingDto oldTrainingDto = trainingMapper.toDto(training);
+        TrainingDto newTrainingDto = oldTrainingDto.updateTraining(trainingDto).addId(id);
+        Training newTraining = trainingMapper.toEntity(newTrainingDto);
+        newTraining.setId(id);
+
+        log.info("Updating Training {}", newTraining);
+        trainingRepository.save(newTraining);
+        return newTrainingDto;
+    }
+
     /**
      * Retrieve trainings by user primary key
      * @param id user primary key
