@@ -97,4 +97,18 @@ public class TrainingController {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateTraining(@PathVariable("id") Long id, @RequestBody TrainingInputDto trainingInputDto) {
+
+        try {
+            return ResponseEntity.ok(trainingService.updateTraining(id, trainingInputDto));
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(e.getMessage());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(e.getMessage());
+        }
+    }
+
 }
