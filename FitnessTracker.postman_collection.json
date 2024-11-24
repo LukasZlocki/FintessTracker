@@ -1,0 +1,714 @@
+{
+	"info": {
+		"_postman_id": "0b210880-9ce4-4076-93f6-ad0a5f9845b6",
+		"name": "FitnessTracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26649691"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{user pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{user username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}users",
+							"host": [
+								"{{URLv1}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users Simple",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{user pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{user username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}users/simple",
+							"host": [
+								"{{URLv1}}users"
+							],
+							"path": [
+								"simple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{user pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{user username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}users/1",
+							"host": [
+								"{{URLv1}}users"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By email",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{user pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{user username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}users/email?email=Emma.Johnson@domain.com",
+							"host": [
+								"{{URLv1}}users"
+							],
+							"path": [
+								"email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "Emma.Johnson@domain.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Older By",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{user pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{user username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}users/older/1990-10-01",
+							"host": [
+								"{{URLv1}}users"
+							],
+							"path": [
+								"older",
+								"1990-10-01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}users/2",
+							"host": [
+								"{{URLv1}}users"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Jon\",\r\n    \"lastName\": \"Doe\",\r\n    \"birthdate\": \"1999-01-01\",\r\n    \"email\": \"Jon.Dsoe@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URLv1}}users",
+							"host": [
+								"{{URLv1}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"Doe\",\r\n    \"birthdate\": \"1999-01-01\",\r\n    \"email\": \"John.Doe@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URLv1}}users/1",
+							"host": [
+								"{{URLv1}}users"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Training",
+			"item": [
+				{
+					"name": "Get All Trainings",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}trainings",
+							"host": [
+								"{{URLv1}}trainings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trainings by User Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}trainings/10",
+							"host": [
+								"{{URLv1}}trainings"
+							],
+							"path": [
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trainings Finished After",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}trainings/finished/2024-01-18",
+							"host": [
+								"{{URLv1}}trainings"
+							],
+							"path": [
+								"finished",
+								"2024-01-18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trainings By Activity Type",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}trainings/activityType?activityType=running",
+							"host": [
+								"{{URLv1}}trainings"
+							],
+							"path": [
+								"activityType"
+							],
+							"query": [
+								{
+									"key": "activityType",
+									"value": "running"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Training",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"1\",\r\n    \"startTime\": \"2024-04-01T11:00:00\",\r\n    \"endTime\": \"2024-04-02T11:00:00\",\r\n    \"activityType\": \"RUNNING\",\r\n    \"distance\": \"20.32\",\r\n    \"averageSpeed\": 5.6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URLv1}}trainings",
+							"host": [
+								"{{URLv1}}trainings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Training",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"1\",\r\n    \"startTime\": \"2021-04-01T11:00:00\",\r\n    \"averageSpeed\": 15.6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URLv1}}trainings/10",
+							"host": [
+								"{{URLv1}}trainings"
+							],
+							"path": [
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Statistics",
+			"item": [
+				{
+					"name": "Generate New Statistics",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}statistics",
+							"host": [
+								"{{URLv1}}statistics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate New Statistics For Specified user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}statistics/1",
+							"host": [
+								"{{URLv1}}statistics"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Statistics For Specified user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}statistics/1",
+							"host": [
+								"{{URLv1}}statistics"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Statistics With Calories Greater Than",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}statistics/1",
+							"host": [
+								"{{URLv1}}statistics"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Statistics",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{admin pass}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{admin username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URLv1}}statistics",
+							"host": [
+								"{{URLv1}}statistics"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URLv1",
+			"value": "localhost:1010/v1/",
+			"type": "string"
+		},
+		{
+			"key": "user username",
+			"value": "user",
+			"type": "string"
+		},
+		{
+			"key": "user pass",
+			"value": "password",
+			"type": "string"
+		},
+		{
+			"key": "admin username",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"key": "admin pass",
+			"value": "wordpass",
+			"type": "string"
+		}
+	]
+}
